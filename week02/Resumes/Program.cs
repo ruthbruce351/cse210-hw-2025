@@ -16,7 +16,12 @@ class Program
         job2._startYear = 2018;
         job2._endYear = 2020;
 
-        job1.Display();
-        job2.Display();
+        Resume resume1 = new Resume();
+        resume1._name = "Ruth Blake";
+
+        resume1._jobs.Add(job1);
+        resume1._jobs.Add(job2);
+
+        resume1.Display();
     }
 }
