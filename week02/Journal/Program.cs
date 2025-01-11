@@ -8,6 +8,7 @@ class Program
         Journal theJournal = new Journal();
         
         string choice = "";
+        string answer = "";
 
         Console.WriteLine("Welcome to the Journal Program!");
         Console.WriteLine();
@@ -32,15 +33,36 @@ class Program
                 Entry anEntry = new Entry();
                 PromptGenerator prompt = new PromptGenerator();
 
+
                 anEntry._promptText = prompt.GetRandomPrompt();
                 anEntry._date = DateTime.Now.ToShortDateString();
 
                 Console.WriteLine($"{anEntry._promptText}");
                 Console.Write("> ");
                 anEntry._entryText = Console.ReadLine();
-                theJournal.AddNewEntry(anEntry);
+                Console.WriteLine();
+
+                do
+                {
+                    Console.WriteLine("Would you like to add a gratitude item? (y/n) ");
+                    Console.Write("> ");
+                    answer = Console.ReadLine();
+                    if (answer == "y")
+                    {
+                        Console.WriteLine("What are you grateful for? ");
+                        Console.Write("> ");
+                        anEntry._gratitudeItems.Add(Console.ReadLine());
+                    }
+                } while (answer == "y");
 
                 Console.WriteLine();
+                Console.WriteLine("How would you rate your mood on a scale of 1-10?");
+                Console.Write("> ");
+                anEntry._mood = Console.ReadLine();
+                Console.WriteLine();
+
+                theJournal.AddNewEntry(anEntry);
+
             }
             else if (choice == "2")
             {
