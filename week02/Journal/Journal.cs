@@ -23,7 +23,7 @@ public class Journal
         {
             foreach (Entry entry in _entries)
             {
-                outputFile.WriteLine($"{entry._date}~|~{entry._promptText}~|~{entry._entryText}");
+                outputFile.WriteLine($"{entry._date}~|~{entry._promptText}~|~{entry._entryText}~|~{string.Join(", ", entry._gratitudeItems)}~|~{entry._mood}");
             }
         }
     }
@@ -40,6 +40,8 @@ public class Journal
                 anEntry._date = parts[0];
                 anEntry._promptText = parts[1];
                 anEntry._entryText = parts[2];
+                anEntry._gratitudeItems = parts[3].Split(", ").ToList();
+                anEntry._mood = parts[4];
                 _entries.Add(anEntry);
             }
         }
