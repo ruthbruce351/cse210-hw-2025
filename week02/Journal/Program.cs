@@ -9,10 +9,11 @@ class Program
         
         string choice = "";
 
+        Console.WriteLine("Welcome to the Journal Program!");
+        Console.WriteLine();
+
         do
         {
-            Console.WriteLine("Welcome to the Journal Program!");
-            Console.WriteLine();
             Console.WriteLine("Please select one of the following choices: ");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
@@ -24,6 +25,8 @@ class Program
 
             choice = Console.ReadLine();
 
+            Console.WriteLine();
+
             if (choice == "1")
             {
                 Entry anEntry = new Entry();
@@ -32,11 +35,12 @@ class Program
                 anEntry._promptText = prompt.GetRandomPrompt();
                 anEntry._date = DateTime.Now.ToShortDateString();
 
-                Console.WriteLine();
                 Console.WriteLine($"{anEntry._promptText}");
                 Console.Write("> ");
                 anEntry._entryText = Console.ReadLine();
                 theJournal.AddNewEntry(anEntry);
+
+                Console.WriteLine();
             }
             else if (choice == "2")
             {
