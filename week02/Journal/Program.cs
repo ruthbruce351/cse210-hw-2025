@@ -51,11 +51,17 @@ class Program
             }
             else if (choice == "3")
             {
-                
+                Console.Write("What file would you like to load from? ");
+                string file = Console.ReadLine();
+                theJournal.LoadFromFile(file);
+                Console.WriteLine();
             }
             else if (choice == "4")
             {
-                
+                Console.Write("What file would you like to save to? ");
+                string file = Console.ReadLine();
+                theJournal.SaveToFile(file);
+                Console.WriteLine();
             }
             else if (choice == "5")
             {
