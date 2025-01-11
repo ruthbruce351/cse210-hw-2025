@@ -1,3 +1,6 @@
+//Creativity Element: I decided to add two additional elements to the Journal Entry.
+//I added a gratitude list and also a mood rating.
+
 using System;
 using System.ComponentModel;
 
